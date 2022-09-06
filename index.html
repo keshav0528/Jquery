@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=>, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#get").click(function () {
+          $("#output").html(
+            $("#txt").val() +
+              "<br/> " +
+              $("#mail").val() +
+              "<br/>  " +
+              $("input:radio[name=gender]:checked").val() +
+              "<br/>  " +
+              $("select option:selected").text()
+          );
+        });
+      });
+    </script>
+    <style>
+      .form {
+        width: 500px;
+        height: 300px;
+        text-align: center;
+        background-image: linear-gradient(to right, #8360c3, #441088);
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 25px;
+        padding: 60px;
+      }
+      .container{
+        padding: 14px 14px;
+        background-color: rgb(65, 128, 113);
+        border: 5px solid rgb(213, 122, 122) !important;
+        width:40%;
+        height: 25rem;
+      }
+    
+      input[type="text"], select { 
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 8px;
+  box-sizing: border-box;
+  
+  float:left;
+}
+
+a{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #507b2f;
+    padding: 10px;
+    margin: 18px 18px !important;
+    text-align: center;
+    border-radius: 5px;
+    color: rgb(170, 200, 196);
+    font-weight: 500;
+
+}
+table{
+    padding-top: 10px;
+}
+
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button{
+        width: 100%;
+  background-color: white;
+  
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover
+{
+        opacity: 0.5;
+}
+
+#output{
+    width: 500px;
+        height: 200px;
+        text-align: center;
+        background-color: #ac93d7;
+        margin-left: auto;
+        margin-right: auto;
+        
+        
+}
+span { 
+  color: #f00; 
+  font-weight:bold; 
+  float:left; 
+  display:none; 
+  margin:1% 0 0 0; 
+}
+      
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align:center;">Form Details</h1>
+    <form>
+          <input type="text" placeholder="Enter Your First Name" name="First Name" /><span>Incorrect value</span> <br/>
+          <input type="text" placeholder="Enter Your Last Name"name="Last Name" /><span>Incorrect value</span> <br/>
+          <input type="text" placeholder="Enter Your Address" name="Address" /><span>Incorrect value</span> <br/>
+        <br/>
+      <select id="country" name="Country">
+          <option>Select Country</option>
+          <option>USA</option>
+          <option>India</option>
+          <option>China</option>
+   </select>
+          <a class="myButton">Submit</a>
+          
+  </form>
+  
+  <br>
+  <br>
+  <table> <div class="myresults"></div>
+  </div></table>
+         
+  
+       
+  </body>
+  <script type="text/javascript">
+  $(document).ready(function() {
+      $('.myButton').click(function() {
+          $(".myresults").html("");
+      $(':input').each(function(index){
+              if($(this).val() == "") {
+                  $('span').show();
+              } else {
+             
+                  $(".myresults").append("<p>" + $(this).attr('name') + ": " + $(this).val() +"</p>"); 
+            $("#country option:selected").text();
+                  $('form').addClass('hideELement');
+              }
+             });
+      });
+  
+  });
+  
+  
+  </script>
+</html>
